@@ -46,7 +46,7 @@ export default function XPenseApp() {
   const totalSpent = budgetData.categories.reduce((sum, cat) => sum + cat.spent, 0);
   const savingsRate = ((budgetData.income - totalSpent) / budgetData.income * 100).toFixed(1);
 
-  const calculateCategoryPerformance = (budgeted, spent) => {
+  const calculateCategoryPerformance = (budgeted: number, spent: number) => {
     const variance = ((spent - budgeted) / budgeted * 100);
     if (variance <= 0) return 'excellent';
     if (variance <= 5) return 'good';
@@ -54,7 +54,7 @@ export default function XPenseApp() {
     return 'poor';
   };
 
-  const getScoreColor = (score) => {
+  const getScoreColor = (score: number) => {
     if (score >= 700) return '#4ADE80';
     if (score >= 500) return '#FFD93D';
     if (score >= 300) return '#FFA726';
